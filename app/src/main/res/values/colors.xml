@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D32F2F</color>
+    <color name="colorPrimaryDark">#2B5B8D</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="listColor">#EBEBEB</color>
+    <color name="toolbarColor">#E6DDDD</color>
+    <color name="galleryColor">#000000</color>
+</resources>

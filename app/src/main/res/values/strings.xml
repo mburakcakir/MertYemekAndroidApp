@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MertYemek</string>
+    <string name="menu">Daily Menu</string>
+    <string name="location">Location</string>
+    <string name="list">List</string>
+    <string name="gallery">Gallery</string>
+    <string name="contact">Contact</string>
+    <string name="appTitle">MERT YEMEK</string>
+</resources>

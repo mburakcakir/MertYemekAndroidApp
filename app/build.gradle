@@ -1,0 +1,112 @@
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/'}
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+
+
+repositories {
+    maven { url 'https://maven.google.com' }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        android {
+            defaultConfig {
+                manifestPlaceholders = [
+                        onesignal_app_id: '0cb55d7a-5fee-469c-b6c9-ce28568ff426',
+                        // Project number pulled from dashboard, local value is ignored.
+                        onesignal_google_project_number: 'REMOTE'
+                ]
+            }
+        }
+
+        applicationId "com.example.mertyemek"
+        buildToolsVersion "28.0.3"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.google.firebase:firebase-core:17.0.0'
+    implementation 'com.onesignal:OneSignal:[3.11.2, 3.99.99]'
+    // Android Libraries
+    api 'androidx.appcompat:appcompat:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'androidx.cardview:cardview:1.0.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'com.google.android.material:material:1.0.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Picasso
+    api 'com.squareup.picasso:picasso:2.5.2'
+
+    // Circle ImageView by Hdodenhof
+    api 'de.hdodenhof:circleimageview:3.0.0'
+
+    // Glide
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // Image Slider
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'com.daimajia.slider:library:1.1.5@aar'
+
+
+    // Google Map
+    api 'com.google.android.gms:play-services-maps:17.0.0'
+
+    //Retrofit Library
+    def retrofitLibraryVersion = "2.3.0"
+   api "com.squareup.retrofit2:retrofit:$retrofitLibraryVersion"
+   api "com.squareup.retrofit2:converter-gson:$retrofitLibraryVersion"
+   api "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibraryVersion"
+   api 'com.squareup.okhttp:okhttp:2.7.2'
+
+    //RxJava Library
+    api 'io.reactivex.rxjava2:rxjava:2.1.7'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    // Muhammed Çağatay Object Printer
+    api 'com.github.cagataymuhammet:AndroidObjectPrinter:a7f2607c8a'
+    api('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
+
+
+}

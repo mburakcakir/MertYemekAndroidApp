@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "833633976635",
+    "firebase_url": "https://mert-yemek.firebaseio.com",
+    "project_id": "mert-yemek",
+    "storage_bucket": "mert-yemek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833633976635:android:7d0ed699f904d4e9",
+        "android_client_info": {
+          "package_name": "com.example.mertyemek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833633976635-nu1v6fb903soaplarenkoe4frl3503n1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeWKQT9UEqydbvjT46rbAl79gYivJOBqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833633976635-nu1v6fb903soaplarenkoe4frl3503n1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
