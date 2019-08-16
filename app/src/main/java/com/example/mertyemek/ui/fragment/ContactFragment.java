@@ -1,22 +1,15 @@
 package com.example.mertyemek.ui.fragment;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import com.example.mertyemek.R;
-import com.example.mertyemek.di.Constants;
-import com.example.mertyemek.util.Utils;
+import com.example.mertyemek.util.ContactUtils;
 
 
 public class ContactFragment extends Fragment implements View.OnClickListener {
@@ -29,8 +22,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
 
         inflater = LayoutInflater.from(container.getContext());
         contactView = inflater.inflate(R.layout.fragment_contact, container, false);
-
-        init();
+    init();
         initListeners();
 
         return contactView;
@@ -60,6 +52,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Utils.clickContactItems(view,getActivity(),getView());
+        ContactUtils.clickContactItems(view,getActivity(),getView());
     }
 }

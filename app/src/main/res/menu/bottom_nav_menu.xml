@@ -4,26 +4,26 @@
     <item
         android:id="@+id/navigation_menu"
         android:icon="@drawable/pot"
-        android:title="@string/menu" />
+        android:title="@string/textMenu" />
 
     <item
         android:id="@+id/navigation_location"
         android:icon="@drawable/location"
-        android:title="@string/location" />
+        android:title="@string/textLocation" />
 
     <item
         android:id="@+id/navigation_list"
         android:icon="@drawable/list"
-        android:title="@string/list" />
+        android:title="@string/textList" />
 
     <item
         android:id="@+id/navigation_gallery"
         android:icon="@drawable/gallery"
-        android:title="@string/gallery" />
+        android:title="@string/textGallery" />
 
     <item
         android:id="@+id/navigation_contact"
         android:icon="@drawable/contact"
-        android:title="@string/contact" />
+        android:title="@string/textContact" />
 
 </menu>

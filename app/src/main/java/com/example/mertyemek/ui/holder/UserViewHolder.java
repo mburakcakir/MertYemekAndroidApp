@@ -9,11 +9,12 @@ import com.example.mertyemek.R;
 public class UserViewHolder extends RecyclerView.ViewHolder {
 
     public TextView filmName;
+    public TextView filmStory;
     public ImageView filmImage;
     public TextView filmYear;
     public TextView filmDuration;
     public TextView filmDirector;
-    public TextView filmStory;
+
 
     public UserViewHolder(View itemView) {
 

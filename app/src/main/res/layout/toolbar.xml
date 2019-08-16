@@ -19,7 +19,7 @@
         android:src="@drawable/twitter" />
 -->
     <Button
-        android:id="@+id/whatsappBT"
+        android:id="@+id/btnWhatsApp"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="right"

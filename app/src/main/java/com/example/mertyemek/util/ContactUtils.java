@@ -10,13 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.appcompat.widget.AppCompatEditText;
-
 import com.example.mertyemek.R;
 import com.example.mertyemek.di.Constants;
 
-public class Utils {
+public class ContactUtils {
 
 
     static void makeCall(Activity activity, String phone) {
@@ -25,16 +22,24 @@ public class Utils {
         activity.startActivity(i);
     }
 
-
     static void openInView(Activity activity, String url) {
-
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         activity.startActivity(intent);
-
     }
 
-    static void sendEmail(Activity activity, String message, String subject) {
+    static void sendEmail(Activity activity) {
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
+
+        try {
+            activity.startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(activity, "No email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    static void sendEmailDialog(Activity activity, String subject, String message) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -50,7 +55,7 @@ public class Utils {
     public static void clickContactItems(View view, Activity activity, View getView) {
         switch (view.getId()) {
             case R.id.imgPhone:
-                makeCall(activity, Constants.NUMBER_PHONE);
+                makeCall(  activity, Constants.NUMBER_PHONE);
                 break;
             case R.id.imgFacebook:
                 openInView(activity, Constants.URL_FACEBOOK);
@@ -69,7 +74,6 @@ public class Utils {
         }
     }
 
-
     static void emailControl(final Activity activity, final View view) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -78,19 +82,8 @@ public class Utils {
         builder.setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 dialog.dismiss();
-
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-                emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
-
-                try {
-                    activity.startActivity(Intent.createChooser(emailIntent, "Send email using..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(activity, "No email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-
-
+                sendEmail(activity);
             }
         });
         builder.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
@@ -109,10 +102,7 @@ public class Utils {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-
-
-                        sendEmail(activity, subject.getText().toString(), message.getText().toString());
-
+                        sendEmailDialog(activity, subject.getText().toString(), message.getText().toString());
                     }
                 });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
