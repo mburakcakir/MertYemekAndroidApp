@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                String url = "https://api.whatsapp.com/send?phone="+"905071625899";
+                String url = "https://api.whatsapp.com/send?phone="+ Constants.NUMBER_WHATSAPP;
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

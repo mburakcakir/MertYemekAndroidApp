@@ -1,5 +1,7 @@
 package com.example.mertyemek.networking;
 
+import com.example.mertyemek.di.Constants;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -7,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Service {
 
-    static String BASE_URL = "https://jsonplaceholder.typicode.com/";
+
     ServiceApi serviceApi;
     private static Retrofit retrofit;
 
@@ -16,7 +18,7 @@ public class Service {
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
+                    .baseUrl(Constants.URL_JSON)
                     .client(getOkHttpClientFactory())
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
