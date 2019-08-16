@@ -60,16 +60,9 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
-
-
         bottomNavigationView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
 
         changeFragment(baseFragment,Constants.BASE_TEXT);
 

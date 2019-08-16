@@ -121,7 +121,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
 
        }
 
-
     @Override
     public void onClick(View view) {
 
@@ -146,6 +145,4 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
                 emailControl();
         }
     }
-
-
 }
