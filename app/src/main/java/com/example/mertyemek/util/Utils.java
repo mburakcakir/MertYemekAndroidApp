@@ -1,14 +1,23 @@
 package com.example.mertyemek.util;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.mertyemek.R;
+import com.example.mertyemek.di.Constants;
 
 public class Utils {
 
 
-    public static void makeCall(Activity activity,String phone)
+    static void makeCall(Activity activity,String phone)
     {
         Intent i = new Intent(Intent.ACTION_DIAL);
         i.setData(Uri.parse("tel:" + phone));
@@ -16,7 +25,7 @@ public class Utils {
     }
 
 
-    public static void openInView(Activity activity, String url) {
+    static void openInView(Activity activity, String url) {
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
@@ -24,7 +33,7 @@ public class Utils {
 
     }
 
-    public static void sendEmail(Activity activity,String message, String subject)
+    static void sendEmail(Activity activity,String message, String subject)
     {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
@@ -36,6 +45,94 @@ public class Utils {
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(activity, "No email clients installed.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+
+
+    public static void  clickContactItems(View view,Activity activity,View getView)
+    {
+        switch (view.getId())
+        {
+            case  R.id.imgPhone:
+                makeCall(activity, Constants.NUMBER_PHONE);
+                break;
+            case R.id.imgFacebook:
+               openInView(activity, Constants.URL_FACEBOOK);
+                break;
+            case R.id.imgTwitter:
+               openInView(activity, Constants.URL_TWITTER);
+                break;
+            case R.id.imgInstagram:
+               openInView(activity, Constants.URL_INSTAGRAM);
+                break;
+            case R.id.imgWebsite:
+               openInView(activity,Constants.URL_WEBSITE);
+                break;
+            case R.id.imgEmail:
+                emailControl(activity,getView);
+        }
+    }
+
+
+
+   static void emailControl(final Activity activity, final View view) {
+
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+                builder.setTitle("Email");
+                builder.setMessage("Email göndermeden önce taslak oluşturmak ister misiniz?");
+                builder.setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                        emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
+
+                        try {
+                           activity.startActivity(Intent.createChooser(emailIntent, "Send email using..."));
+                        } catch (android.content.ActivityNotFoundException ex) {
+                            Toast.makeText(activity.getApplicationContext(), "No email clients installed.", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                });
+                builder.setPositiveButton("Evet", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(activity.getApplicationContext());
+                        builder.setTitle("Hızlı bir taslak oluşturun.");
+                        final View viewInflated = LayoutInflater.from(activity.getApplicationContext()).inflate(R.layout.dialog_email_layout, (ViewGroup) view, false);
+
+                        final EditText subject = viewInflated.findViewById(R.id.edit_text_subject);
+                        final EditText message = viewInflated.findViewById(R.id.edit_text_message);
+                        builder.setView(viewInflated);
+
+                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                              sendEmail(activity,subject.toString(),message.toString());
+
+                            }
+                        });
+                        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+
+                        builder.show();
+
+                    }
+                });
+                builder.show();
     }
 
 }
