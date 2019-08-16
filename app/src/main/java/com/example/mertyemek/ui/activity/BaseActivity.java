@@ -14,6 +14,8 @@ import com.example.mertyemek.ui.fragment.MenuFragment;
 import com.example.mertyemek.R;
 
 public class BaseActivity extends AppCompatActivity {
+
+
     MenuFragment menuFragment = new MenuFragment();
     BaseFragment baseFragment = new BaseFragment();
     LocationFragment locationFragment = new LocationFragment();

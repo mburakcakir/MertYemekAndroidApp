@@ -21,35 +21,33 @@ import com.example.mertyemek.util.Utils;
 
 public class ContactFragment extends Fragment implements View.OnClickListener {
 
-
     View contactView;
     ImageView imgPhone, imgEmail, imgWebsite, imgFacebook, imgInstagram, imgTwitter;
     EditText mEditTextSubject,mEditTextMessage;
-
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         inflater = LayoutInflater.from(container.getContext());
         contactView = inflater.inflate(R.layout.fragment_contact, container, false);
+
         init();
-       setOnClickListener();
+        initListeners();
 
         return contactView;
     }
 
-
-    void setOnClickListener()
+    void initListeners()
     {
-    imgPhone.setOnClickListener(this);
-    imgEmail.setOnClickListener(this);
-    imgWebsite.setOnClickListener(this);
-    imgTwitter.setOnClickListener(this);
-    imgFacebook.setOnClickListener(this);
-    imgInstagram.setOnClickListener(this);
+        imgPhone.setOnClickListener(this);
+        imgEmail.setOnClickListener(this);
+        imgWebsite.setOnClickListener(this);
+        imgTwitter.setOnClickListener(this);
+        imgFacebook.setOnClickListener(this);
+        imgInstagram.setOnClickListener(this);
     }
 
-
-    void init() {
+    void init()
+    {
         imgPhone = contactView.findViewById(R.id.imgPhone);
         imgEmail = contactView.findViewById(R.id.imgEmail);
         imgWebsite = contactView.findViewById(R.id.imgWebsite);
@@ -60,10 +58,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
         mEditTextMessage = contactView.findViewById(R.id.edit_text_subject);
     }
 
-
     @Override
     public void onClick(View view) {
-
-       Utils.clickContactItems(view,getActivity(),getView());
+        Utils.clickContactItems(view,getActivity(),getView());
     }
 }

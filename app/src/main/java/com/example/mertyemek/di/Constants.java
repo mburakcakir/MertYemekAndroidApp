@@ -12,10 +12,15 @@ public class Constants {
     public final static String NUMBER_PHONE = "905071625899";
     public final static String NUMBER_WHATSAPP = "905071625899";
 
+
+
+    /*
     public final static String BASE_TEXT = "Welcome to Mert Yemek";
     public final static String MENU_TEXT = "Daily Menu";
     public final static String LOCATION_TEXT = "Location";
     public final static String LIST_TEXT = "List";
     public final static String GALLERY_TEXT = "Gallery";
     public final static String CONTACT_TEXT = "Contact";
+
+    */
 }

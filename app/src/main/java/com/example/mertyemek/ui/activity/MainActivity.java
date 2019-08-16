@@ -30,23 +30,23 @@ public class MainActivity extends BaseActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_menu:
                //     mTextMessage.setText(R.string.menu);
-                    changeFragment(menuFragment, Constants.MENU_TEXT);
+                    changeFragment(menuFragment, getString(R.string.menu));
                     return true;
 
                 case R.id.navigation_location:
-                    changeFragment(locationFragment,Constants.LOCATION_TEXT);
+                    changeFragment(locationFragment,getString(R.string.location));
                     return true;
 
                 case R.id.navigation_list:
-                    changeFragment(listFragment,Constants.LIST_TEXT);
+                    changeFragment(listFragment,getString(R.string.list));
                     return true;
 
                 case R.id.navigation_gallery:
-                    changeFragment(galleryFragment,Constants.GALLERY_TEXT);
+                    changeFragment(galleryFragment,getString(R.string.gallery));
                     return true;
 
                 case R.id.navigation_contact:
-                    changeFragment(contactFragment,Constants.CONTACT_TEXT);
+                    changeFragment(contactFragment,getString(R.string.contact));
                     return true;
 
 
@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity {
         mTextMessage = findViewById(R.id.message);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        changeFragment(baseFragment,Constants.BASE_TEXT);
+        changeFragment(baseFragment,getString(R.string.welcome));
 
         buton = findViewById(R.id.whatsappBT);
 
@@ -78,7 +78,6 @@ public class MainActivity extends BaseActivity {
                 startActivity(i);
             }
         });
-
 
     }
 
