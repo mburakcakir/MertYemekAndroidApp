@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Service {
 
-
     ServiceApi serviceApi;
     private static Retrofit retrofit;
 

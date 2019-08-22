@@ -1,14 +1,9 @@
 package com.example.mertyemek.ui.activity;
 
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,12 +12,11 @@ import com.example.mertyemek.R;
 import com.example.mertyemek.di.Constants;
 import com.example.mertyemek.di.DynamicConstants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.onesignal.OneSignal;
+
 
 
 public class MainActivity extends BaseActivity {
-    private TextView mTextMessage;
-
+  //  private TextView mTextMessage;
     Button btnWhatsApp;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -62,7 +56,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
+      //  mTextMessage = findViewById(R.id.message);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         changeFragment(menuFragment,getString(R.string.textWelcome));
@@ -80,7 +74,17 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+    chooseNotificationFragment();
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
+    public void chooseNotificationFragment(){
 
         if(!DynamicConstants.MOVE_FRAGMENT_NAME_BY_NOTIFICATION.equals(""))
         {
@@ -102,14 +106,10 @@ public class MainActivity extends BaseActivity {
                 changeFragment(galleryFragment,"");
             }
             else {
-             //   DynamicConstants.MOVE_FRAGMENT_NAME_BY_NOTIFICATION="";
+                //   DynamicConstants.MOVE_FRAGMENT_NAME_BY_NOTIFICATION="";
                 changeFragment(contactFragment,"");
             }
         }
-    }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
 
     }
 }

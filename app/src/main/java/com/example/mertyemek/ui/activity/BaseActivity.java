@@ -3,7 +3,6 @@ package com.example.mertyemek.ui.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 // Created Fragments
 import com.example.mertyemek.ui.fragment.BaseFragment;
@@ -15,7 +14,7 @@ import com.example.mertyemek.ui.fragment.MenuFragment;
 import com.example.mertyemek.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity  {
 
     BottomNavigationView bottomNavigationView;
 

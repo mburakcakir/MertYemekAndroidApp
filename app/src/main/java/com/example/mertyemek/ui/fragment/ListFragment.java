@@ -61,7 +61,6 @@ void  getUsersList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<List<UserModel>>() {
 
-
                     @Override
                     public void onSubscribe(Disposable d) {
 

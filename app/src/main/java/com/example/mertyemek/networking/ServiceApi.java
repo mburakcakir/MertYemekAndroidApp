@@ -19,6 +19,12 @@ public interface ServiceApi {
     Observable<List<DataModel>> getData();
     // https://reqres.in/api/users?page=2
 */
+/*
+    @GET(".json")
+    Observable<List<DataModel>> getData();
+    // https://null-86c43.firebaseio.com/.json
+*/
+
 
 
 

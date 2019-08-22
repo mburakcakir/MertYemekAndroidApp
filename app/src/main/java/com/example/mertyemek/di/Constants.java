@@ -26,7 +26,4 @@ public class Constants {
             R.mipmap.mert7,
             R.mipmap.mert8);
 
-
-
-
 }

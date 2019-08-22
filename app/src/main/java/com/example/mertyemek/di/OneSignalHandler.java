@@ -1,12 +1,7 @@
 package com.example.mertyemek.di;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
-import android.view.View;
-
-import com.example.mertyemek.ui.activity.BaseActivity;
 import com.example.mertyemek.ui.activity.MainActivity;
 import com.onesignal.OSNotificationAction;
 import com.onesignal.OSNotificationOpenResult;
@@ -15,12 +10,12 @@ import com.onesignal.OneSignal;
 import org.json.JSONObject;
 
 
-public class OnesignalHandler implements OneSignal.NotificationOpenedHandler
+public class OneSignalHandler implements OneSignal.NotificationOpenedHandler
 {
 
   Context context;
 
-    OnesignalHandler(Context context1)
+  OneSignalHandler(Context context1)
     {
         this.context=context1;
     }
