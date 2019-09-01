@@ -21,7 +21,7 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         filmName = itemView.findViewById(R.id.filmTitleTV);
-        filmStory = itemView.findViewById(R.id.filmStoryTV);
+        filmStory = itemView.findViewById(R.id.txtName);
 
 
         //  filmImage = itemView.findViewById(com.example.mertyemek.R.id.filmImageIV);

@@ -37,7 +37,7 @@ android {
         android {
             defaultConfig {
                 manifestPlaceholders = [
-                        onesignal_app_id: '0cb55d7a-5fee-469c-b6c9-ce28568ff426',
+                        onesignal_app_id: '9374eda1-e014-4287-91cf-345261b0633f',
                         // Project number pulled from dashboard, local value is ignored.
                         onesignal_google_project_number: 'REMOTE'
                 ]
@@ -57,6 +57,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    useLibrary 'org.apache.http.legacy'
+
 }
 
 dependencies {
@@ -107,6 +110,6 @@ dependencies {
     api('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
         transitive = true;
     }
-
+    
 
 }

@@ -8,11 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
+
+import com.example.mertyemek.di.DynamicConstants;
 import com.example.mertyemek.model.UserModel;
 import com.example.mertyemek.networking.Service;
+import com.example.mertyemek.ui.adapter.ExpandableListAdapter;
+import com.example.mertyemek.ui.adapter.MenuAdapter;
 import com.example.mertyemek.ui.adapter.UserAdapter;
 import com.example.mertyemek.R;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 // object printer by Muhammed Çağatay
@@ -28,6 +35,12 @@ public class ListFragment extends Fragment {
 
     View listView;
 
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
+
+
     List<UserModel> usersList=new ArrayList<>();
 
     @Nullable
@@ -36,12 +49,52 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-      getUsersList();
+      listView = inflater.inflate(R.layout.expandable_listview, container, false);
 
-      listView = inflater.inflate(R.layout.fragment_list, container, false);
+        expListView = listView.findViewById(R.id.expandable_menu);
+
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter(getContext(), listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Toast.makeText(
+                        getContext(),
+                        listDataHeader.get(groupPosition)
+                                + " : "
+                                + listDataChild.get(
+                                listDataHeader.get(groupPosition)).get(
+                                childPosition), Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        });
+
+
 
       return listView;
     }
+
+
+
+
+    void generateMenuList()
+    {
+        RecyclerView   recyclerView = listView.findViewById(R.id.recyclerView);
+        MenuAdapter adapter = new MenuAdapter();
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }
+
 
     void generateUserList(List<UserModel> empDataList)
     {
@@ -53,7 +106,20 @@ public class ListFragment extends Fragment {
     }
 
 
-void  getUsersList()
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        for(int i=0; i<8;i++) {
+        listDataHeader.add(DynamicConstants.MENU_MODEL_LIST.get(i).getMenuName());
+        listDataChild.put(listDataHeader.get(i), DynamicConstants.MENU_MODEL_LIST.get(i).getMenuList());
+        }
+
+    }
+
+
+
+    void  getUsersList()
     {
 
         new Service().getServiceApi().getUsers().
@@ -89,12 +155,5 @@ void  getUsersList()
                     }
                 });
     }
-
-
-
-
-
-
-
 
 }

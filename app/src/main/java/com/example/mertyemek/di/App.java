@@ -6,6 +6,8 @@ import com.onesignal.OneSignal;
 public class App extends Application {
 
 
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -17,6 +19,10 @@ public class App extends Application {
                 .init();
 
     }
+
+
+
+
 }
 
 

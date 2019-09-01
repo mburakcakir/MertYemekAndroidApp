@@ -7,11 +7,21 @@
     tools:context=".ui.fragment.MenuFragment">
 
     <WebView
+        android:visibility="gone"
         android:id="@+id/menuVW"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtWebMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

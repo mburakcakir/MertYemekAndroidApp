@@ -34,7 +34,7 @@ public class GalleryFragment extends Fragment {
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
-        mDemoSlider.setDuration(1000);
+        mDemoSlider.setDuration(2500);
         return galleryView;
     }
 

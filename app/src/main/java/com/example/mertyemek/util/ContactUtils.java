@@ -16,9 +16,17 @@ import com.example.mertyemek.di.Constants;
 public class ContactUtils {
 
 
-    static void makeCall(Activity activity, String phone) {
+    static void makeCall(Activity activity) {
         Intent i = new Intent(Intent.ACTION_DIAL);
-        i.setData(Uri.parse("tel:" + phone));
+        i.setData(Uri.parse("tel:" + Constants.NUMBER_PHONE));
+        activity.startActivity(i);
+    }
+
+    public void connectWhatsapp(Activity activity) {
+
+        String url = "https://api.whatsapp.com/send?phone="+ Constants.NUMBER_WHATSAPP;
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
         activity.startActivity(i);
     }
 
@@ -55,7 +63,7 @@ public class ContactUtils {
     public static void clickContactItems(View view, Activity activity, View getView) {
         switch (view.getId()) {
             case R.id.imgPhone:
-                makeCall(  activity, Constants.NUMBER_PHONE);
+                makeCall(activity);
                 break;
             case R.id.imgFacebook:
                 openInView(activity, Constants.URL_FACEBOOK);

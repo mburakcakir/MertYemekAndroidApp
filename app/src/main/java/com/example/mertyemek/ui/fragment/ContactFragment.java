@@ -1,5 +1,6 @@
 package com.example.mertyemek.ui.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,12 +41,12 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
 
     void init()
     {
-        imgPhone = contactView.findViewById(R.id.imgPhone);
-        imgEmail = contactView.findViewById(R.id.imgEmail);
-        imgWebsite = contactView.findViewById(R.id.imgWebsite);
-        imgFacebook = contactView.findViewById(R.id.imgFacebook);
-        imgInstagram = contactView.findViewById(R.id.imgInstagram);
-        imgTwitter = contactView.findViewById(R.id.imgTwitter);
+        imgPhone =         contactView.findViewById(R.id.imgPhone);
+        imgEmail =         contactView.findViewById(R.id.imgEmail);
+        imgWebsite =       contactView.findViewById(R.id.imgWebsite);
+        imgFacebook =      contactView.findViewById(R.id.imgFacebook);
+        imgInstagram =     contactView.findViewById(R.id.imgInstagram);
+        imgTwitter =       contactView.findViewById(R.id.imgTwitter);
         mEditTextSubject = contactView.findViewById(R.id.edit_text_subject);
         mEditTextMessage = contactView.findViewById(R.id.edit_text_subject);
     }
