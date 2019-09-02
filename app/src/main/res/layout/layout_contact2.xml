@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.3"
+        android:background="@color/colorAccent">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/mertlogo3" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="0.1"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="@string/appTitle"
+            android:textColor="#020000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.05"
+        android:background="@color/colorAccent">
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Bize Ulaşın "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.55"
+        android:background="@color/colorAccent"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgPhone"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/call" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="0.15"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/txtCall"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Call"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:id="@+id/imgFacebook"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/facebook" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.15"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/txtFacebook"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Facebook"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgEmail"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/mail" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="0.15"
+                        android:background="@color/colorAccent"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/txtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Mail "
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:id="@+id/imgTwitter"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/twitter" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.15"
+                        android:background="@color/colorAccent"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/txtTwitter"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Twitter"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imgWebsite"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/website" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="0.15"
+                        android:gravity="center">
+
+
+                        <TextView
+                            android:id="@+id/txtWebsite"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Website"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.35"
+                        android:gravity="center">
+
+
+                        <ImageView
+                            android:id="@+id/imgInstagram"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:srcCompat="@drawable/instagram" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="0.15"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/txtInstagram"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Instagram"
+                            android:textColor="#000000"
+                            android:textSize="15sp"
+                            android:textStyle="bold|italic" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -36,7 +36,7 @@ public class ContactUtils {
         activity.startActivity(intent);
     }
 
-    static void sendEmail(Activity activity) {
+    public static void sendEmail(Activity activity) {
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:" + "mertyemek@gmail.com"));
 
