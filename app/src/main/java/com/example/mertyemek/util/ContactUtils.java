@@ -16,13 +16,13 @@ import com.example.mertyemek.di.Constants;
 public class ContactUtils {
 
 
-    static void makeCall(Activity activity) {
+    public static void makeCall(Activity activity) {
         Intent i = new Intent(Intent.ACTION_DIAL);
         i.setData(Uri.parse("tel:" + Constants.NUMBER_PHONE));
         activity.startActivity(i);
     }
 
-    public void connectWhatsapp(Activity activity) {
+    public static void connectWhatsapp(Activity activity) {
 
         String url = "https://api.whatsapp.com/send?phone="+ Constants.NUMBER_WHATSAPP;
         Intent i = new Intent(Intent.ACTION_VIEW);

@@ -1,25 +1,25 @@
 package com.example.mertyemek.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
 
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.cagataymuhammet.objectprinter.ObjectPrinter;
 import com.example.mertyemek.R;
-import com.example.mertyemek.di.Constants;
 import com.example.mertyemek.di.DynamicConstants;
 import com.example.mertyemek.model.MenuModel;
-import com.google.gson.JsonObject;
+import com.example.mertyemek.util.ContactUtils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -38,7 +38,12 @@ import java.util.ArrayList;
 public class MenuFragment extends Fragment {
 
     String URL="https://www.w3.org/services/html2txt?url=https%3A%2F%2Fmertyemek.net%2Fgunluk-menuler-2-3-2%2F";
+    ImageView imgPrice;
+    Button btnPrice, btnOrder;
+    LinearLayout linearLayout;
+    RadioGroup rgOrder;
 
+    ContactUtils contactUtils;
 
     WebView webview;
     View menuView;
@@ -47,9 +52,63 @@ public class MenuFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         menuView=inflater.inflate(R.layout.fragment_menu, container, false);
-        txtWebMenu=(TextView)menuView.findViewById(R.id.txtWebMenu);
+        imgPrice = menuView.findViewById(R.id.imgPrice);
+        btnPrice = menuView.findViewById(R.id.btnPrice);
+        btnOrder = menuView.findViewById(R.id.btnOrder);
+        imgPrice.setVisibility(View.INVISIBLE);
+        linearLayout = menuView.findViewById(R.id.check);
+        linearLayout.setVisibility(View.INVISIBLE);
+        rgOrder = menuView.findViewById(R.id.rgOrder);
 
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
+
+
+        btnPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    imgPrice.setVisibility(View.VISIBLE);
+                linearLayout.setVisibility(View.INVISIBLE);
+
+            }
+        });
+
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linearLayout.setVisibility(View.VISIBLE);
+                imgPrice.setVisibility(View.INVISIBLE);
+            }
+        });
+/*
+        int call=rgOrder.getCheckedRadioButtonId();
+        Toast.makeText(getContext(), Integer.toString(call), Toast.LENGTH_SHORT).show();
+        switch(call)
+
+        {
+            case R.id.rbCall: { contactUtils.makeCall(getActivity()); break; }
+
+            case R.id.rbWhatsapp: { contactUtils.connectWhatsapp(getActivity()); break;}
+        }
+*/
+
+        rgOrder.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.rbCall:
+                        contactUtils.makeCall(getActivity());
+                        break;
+                    case R.id.rbWhatsapp:
+                        contactUtils.connectWhatsapp(getActivity());
+                        break;
+                }
+            }
+        });
+
+
+
+
+
+            int SDK_INT = android.os.Build.VERSION.SDK_INT;
         if (SDK_INT > 8)
         {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -81,7 +140,6 @@ public class MenuFragment extends Fragment {
                 )
         );
 
-
         String result = "";
         String line = null;
 
@@ -89,14 +147,12 @@ public class MenuFragment extends Fragment {
 
             result += line + "\n";
         }
-/*
-        result=result.replace(Constants.start,"");
-        result= result.replace(Constants.stop,"");
-        result= result.replace("\n ","");
-*/
 
         int indexOfNew = result.indexOf("Çorbalar");
         int indexOfIn = result.indexOf("[23]");
+
+
+
         result = result.substring(indexOfNew,indexOfIn-5);
         result= result.replace("\n ","");
         System.out.println(result);

@@ -28,8 +28,6 @@ import io.fabric.sdk.android.Fabric;
 
 public class SplashActivity extends AppCompatActivity {
 
-    String URL="https://www.w3.org/services/html2txt?url=https%3A%2F%2Fmertyemek.net%2Fgunluk-menuler-2-3-2%2F";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(0);
+                    Thread.sleep(500);
                 } catch (Exception e) {
 
                 } finally {
@@ -49,7 +47,6 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
-
             }
         }).start();
     }

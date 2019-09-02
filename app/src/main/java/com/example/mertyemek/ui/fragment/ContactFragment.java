@@ -22,7 +22,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         inflater = LayoutInflater.from(container.getContext());
-        contactView = inflater.inflate(R.layout.fragment_contact, container, false);
+        contactView = inflater.inflate(R.layout.layout_contact2, container, false);
     init();
         initListeners();
 
