@@ -54,7 +54,6 @@ public class BaseActivity extends AppCompatActivity  {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(text);
 
-
     }
 
 

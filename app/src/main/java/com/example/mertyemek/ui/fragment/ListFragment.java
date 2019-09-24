@@ -18,12 +18,15 @@ import com.example.mertyemek.ui.adapter.ExpandableListAdapter;
 import com.example.mertyemek.ui.adapter.MenuAdapter;
 import com.example.mertyemek.ui.adapter.UserAdapter;
 import com.example.mertyemek.R;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 // object printer by Muhammed Çağatay
 import com.cagataymuhammet.objectprinter.ObjectPrinter;
+import com.example.mertyemek.util.MenuUtils;
 
 // retrofit
 import io.reactivex.Observer;
@@ -39,6 +42,7 @@ public class ListFragment extends Fragment {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    MenuUtils menuUtils = new MenuUtils();
 
 
     List<UserModel> usersList=new ArrayList<>();

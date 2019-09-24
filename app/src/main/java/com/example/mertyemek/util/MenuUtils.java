@@ -7,10 +7,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mertyemek.R;
-import com.example.mertyemek.di.Constants;
 import com.example.mertyemek.di.DynamicConstants;
 import com.example.mertyemek.model.MenuModel;
 
@@ -21,7 +19,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,6 +31,12 @@ import java.util.Calendar;
 public class MenuUtils {
 
     public static String URL="https://www.w3.org/services/html2txt?url=https%3A%2F%2Fmertyemek.net%2Fgunluk-menuler-2-3-2%2F";
+    public ArrayList<String> menuData = new ArrayList<>();
+    public static int menuCounter;
+    public static String result;
+    public String resultHolder;
+    public static String line = null;
+    static BufferedReader reader;
     public static boolean control = false;
     public static void sdkControl() {
        int SDK_INT = android.os.Build.VERSION.SDK_INT;
@@ -45,67 +48,64 @@ public class MenuUtils {
        }
    }
 
-    public static void getHtml(String url) throws ClientProtocolException, IOException
+   public static void loadData() throws IOException {
+
+       String URL = "https://www.w3.org/services/html2txt?url=https%3A%2F%2Fmertyemek.net%2Fgunluk-menuler-2-3-2%2F";
+       HttpClient httpClient = new DefaultHttpClient();
+       HttpContext localContext = new BasicHttpContext();
+       HttpGet httpGet = new HttpGet(URL);
+       HttpResponse response = httpClient.execute(httpGet, localContext);
+
+       reader = new BufferedReader(
+               new InputStreamReader(
+                       response.getEntity().getContent()
+               )
+       );
+
+       while ((line = reader.readLine()) != null)
+           result += line + "\n";
+
+       control = true;
+   }
+
+
+    public void getHtml(String indexStart, String indexStop) throws ClientProtocolException, IOException
     {
-        HttpClient httpClient = new DefaultHttpClient();
-        HttpContext localContext = new BasicHttpContext();
-        HttpGet httpGet = new HttpGet(url);
-        HttpResponse response = httpClient.execute(httpGet, localContext);
+            resultHolder = result;
 
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(
-                        response.getEntity().getContent()
-                )
-        );
+        int indexOfNew = result.indexOf(indexStart);
+        int indexOfIn = result.indexOf(indexStop);
 
-        String result = "";
-        String line = null;
-
-        while ((line = reader.readLine()) != null){
-
-            result += line + "\n";
-        }
-
-        int indexOfNew = result.indexOf("Çorbalar");
-        int indexOfIn = result.indexOf("[23]");
-
-
-
-        result = result.substring(indexOfNew,indexOfIn-5);
+        result = result.substring(indexOfNew,indexOfIn);
         result= result.replace("\n ","");
-        System.out.println(result);
+        System.out.println(menuCounter);
 
         String finalStr=result;
 
         //  Log.e("CAGATAY_FINAL_STR",finalStr);
 
         BufferedReader reader2 = new BufferedReader(new StringReader(finalStr));
-        BufferedReader reader3 = new BufferedReader(new StringReader(finalStr));
-
 
         ArrayList<MenuModel> tumListe = new ArrayList<>();
-        String  line2=null;
-
-        String  line3=null;
-        while ((line3 = reader3.readLine()) != null){
-            System.out.println("------"+line3+"----");
-        }
 
         while ((line = reader2.readLine()) != null && !line.startsWith(" ")&& line.length()>3) {
-
             MenuModel menuModel = new MenuModel();
             menuModel.setMenuName(line);
+            menuData.add(line + "\n");
 
             ArrayList<String> menus = new ArrayList<>();
             while ((line = reader2.readLine()) != null && line.startsWith("  ")) {
-                menus.add(line);
+                    menus.add(line);
+                menuData.add(line + "\n");
             }
             menuModel.setMenuList(menus);
             tumListe.add(menuModel);
         }
 
         DynamicConstants.MENU_MODEL_LIST =tumListe;
-        control = true;
+
+       result = resultHolder;
+
     }
 
     public static void clickButonItems(Activity activity, View view, ImageView imageView, LinearLayout linearLayout) {
@@ -116,7 +116,6 @@ public class MenuUtils {
             case R.id.btnPrice:
                 priceButonClick(activity, imageView,linearLayout);
                 break;
-
         }
     }
 

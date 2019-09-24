@@ -9,138 +9,170 @@ android:gravity="center"
 android:orientation="vertical"
 tools:context=".ui.fragment.MenuFragment">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="0px"
-    android:layout_weight="0.4"
-    android:gravity="center">
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0px"
+        android:layout_weight="0.3"
+        android:gravity="center">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="0.2">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtDate"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginEnd="0dp"
-                android:layout_marginRight="0dp"
-                android:background="@color/colorAccent"
-                android:gravity="center"
-                android:text="@string/appTitle"
-                android:textColor="#020000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                android:layout_height="0px"
+                android:layout_weight="0.5"
+                android:background="#191919"
+                android:padding="10dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="0.4">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView7"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="0.5"
-                    android:gravity="center|top"
-                    android:paddingTop="10dp"
-                    android:text="Çalışma Saatleri:"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="0.5"
-                    android:gravity="top|left"
-                    android:paddingTop="14dp"
-                    android:text="11.30 - 16.30"
-                    android:textSize="16sp"
-                    android:textStyle="italic" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="0.33"
-            android:padding="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.5">
-
-                    <Button
-                        android:id="@+id/btnOrder"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:background="#D32F2F"
-                        android:text="SİPARİŞ VER"
-                        android:textColor="#FFFFFF" />
-                </RelativeLayout>
+                        android:layout_height="0px"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="0.5">
 
-                <RelativeLayout
+                        <TextView
+                            android:id="@+id/txtDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginRight="0dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="center|left"
+                            android:text="@string/appTitle"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="0.5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0px"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.45">
+
+                                <TextView
+                                    android:id="@+id/textView6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="Çalışma Saatleri : "
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0px"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.55">
+
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingTop="2dp"
+                                    android:text="11.30 - 16.30"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="0.5"
+                android:padding="10dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5">
+                    android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnPrice"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:background="#D32F2F"
-                        android:text="FİYAT LİSTESİ"
-                        android:textColor="#FFFFFF" />
-                </RelativeLayout>
-            </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
-</RelativeLayout>
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="0px"
-    android:layout_weight="0.6"
-    android:gravity="center">
+                        <Button
+                            android:id="@+id/btnOrder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:background="#FFFFFF"
+                            android:drawableLeft="@drawable/orderfood"
+                            android:paddingLeft="10dp"
+                            android:text="SİPARİŞ VER"
+                            android:textColor="#000000" />
+                    </RelativeLayout>
 
-    <include
-        layout="@layout/layout_radiobutton"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+
+                        <Button
+                            android:id="@+id/btnPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="#FFFFFF"
+                            android:drawableLeft="@drawable/price"
+                            android:paddingLeft="10dp"
+                            android:text="FİYAT LİSTESİ"
+                            android:textColor="#000000" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></include>
+        android:layout_height="0px"
+        android:layout_weight="0.7"
+        android:gravity="center">
+        <!--
+        <include
+            layout="@layout/layout_radiobutton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></include>
+-->
+        <include
+            layout="@layout/layout_siparis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></include>
 
-    <ImageView
-        android:id="@+id/imgPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/pricelist" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/imgPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pricelist" />
+    </RelativeLayout>
 
 </LinearLayout>
