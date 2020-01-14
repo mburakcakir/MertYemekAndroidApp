@@ -42,8 +42,6 @@ public class ListFragment extends Fragment {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    MenuUtils menuUtils = new MenuUtils();
-
 
     List<UserModel> usersList=new ArrayList<>();
 

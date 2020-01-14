@@ -3,7 +3,12 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FFFFFF</color>
-    <color name="listColor">#EBEBEB</color>
-    <color name="toolbarColor">#E6DDDD</color>
-    <color name="galleryColor">#000000</color>
+    <color name="colorList">#EBEBEB</color>
+    <color name="colorToolbar">#E6DDDD</color>
+    <color name="colorGallery">#000000</color>
+    <color name="colorSoup">#C70039</color>
+    <color name="colorMain">#3C82E8</color>
+    <color name="colorAux">#FFC300</color>
+    <color name="colorDessert">#62E67D</color>
+    <color name="colorDrink">#E789EA</color>
 </resources>

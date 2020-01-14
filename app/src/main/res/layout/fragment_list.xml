@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/listColor">
+    android:background="@color/colorList">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/listColor"
+        android:background="@color/colorList"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         android:layout_marginTop="10dp"/>

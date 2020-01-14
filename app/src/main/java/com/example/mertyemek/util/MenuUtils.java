@@ -2,6 +2,7 @@ package com.example.mertyemek.util;
 
 import android.app.Activity;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -65,6 +66,7 @@ public class MenuUtils {
        while ((line = reader.readLine()) != null)
            result += line + "\n";
 
+       Log.e("result",result);
        control = true;
    }
 
@@ -82,7 +84,7 @@ public class MenuUtils {
 
         String finalStr=result;
 
-        //  Log.e("CAGATAY_FINAL_STR",finalStr);
+        Log.e("CAGATAY_FINAL_STR",finalStr);
 
         BufferedReader reader2 = new BufferedReader(new StringReader(finalStr));
 

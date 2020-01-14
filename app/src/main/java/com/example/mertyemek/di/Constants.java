@@ -12,8 +12,8 @@ public class Constants {
     public final static String URL_TWITTER = "https://twitter.com/Verisun";
     public final static String URL_INSTAGRAM = "https://www.instagram.com/mertyemek/?hl=tr";
     public final static String URL_WEBSITE = "https://mertyemek.net";
-    public final static String NUMBER_PHONE = "905071625899";
-    public final static String NUMBER_WHATSAPP = "905071625899";
+    public final static String NUMBER_PHONE = "902163804581";
+    public final static String NUMBER_WHATSAPP = "902163804581";
 
 
     public final static List<Integer> galleryImagesList = Arrays.asList(
@@ -25,5 +25,4 @@ public class Constants {
             R.mipmap.mert6,
             R.mipmap.mert7,
             R.mipmap.mert8);
-
 }

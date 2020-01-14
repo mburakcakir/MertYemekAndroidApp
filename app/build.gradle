@@ -40,6 +40,7 @@ android {
                         onesignal_app_id: '9374eda1-e014-4287-91cf-345261b0633f',
                         // Project number pulled from dashboard, local value is ignored.
                         onesignal_google_project_number: 'REMOTE'
+
                 ]
             }
         }
@@ -50,6 +51,9 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
+
     }
     buildTypes {
         release {
@@ -110,6 +114,7 @@ dependencies {
     api('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
         transitive = true;
     }
-    
+
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
