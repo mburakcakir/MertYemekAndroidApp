@@ -117,8 +117,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener,Adapt
             corbaData.getHtml("ÇORBA", "ANA YEMEKLER");
             anaData.getHtml("ANA YEMEKLER", "YARDIMCILAR");
             yardimciData.getHtml("YARDIMCILAR", "TATLI ÇEŞİTLERİ");
-            tatliData.getHtml("TATLI ÇEŞİTLERİ", "İÇİÇEKLER");
-            icecekData.getHtml("İÇİÇEKLER", "[23]");
+            tatliData.getHtml("TATLI ÇEŞİTLERİ", "İÇECEKLER");
+            icecekData.getHtml("İÇECEKLER", "[23]");
             basicData.getHtml("ÇORBA", "[23]");
 
 
