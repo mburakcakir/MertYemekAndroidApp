@@ -1,7 +1,6 @@
 package com.example.mertyemek.ui.fragment;
-import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,11 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.mertyemek.R;
 import com.example.mertyemek.util.MenuUtils;
+
 import java.io.IOException;
 
 
@@ -27,6 +29,13 @@ public class MenuFragment extends Fragment implements View.OnClickListener,Adapt
     View menuView;
     TextView txtDate, txtPrice;
     double price;
+
+    String corbaStart = "ÇORBA";
+    String anaStart = "ANA YEMEKLER";
+    String yardimciStart = "YARDIMCILAR";
+    String tatliStart = "TATLI ÇEŞİTLERİ";
+    String icecekStart = "İÇECEKLER";
+    String end = "[23]";
 
     Spinner spinnerCorba, spinnerAna, spinnerYardimci, spinnerTatli,spinnerIcecek;
     ArrayAdapter<String> adapterCorba, adapterAna, adapterYardimci, adapterTatli,adapterIcecek;
@@ -114,12 +123,13 @@ public class MenuFragment extends Fragment implements View.OnClickListener,Adapt
             if (MenuUtils.control == false)
                 MenuUtils.loadData();
 
-            corbaData.getHtml("ÇORBA", "ANA YEMEKLER");
-            anaData.getHtml("ANA YEMEKLER", "YARDIMCILAR");
-            yardimciData.getHtml("YARDIMCILAR", "TATLI ÇEŞİTLERİ");
-            tatliData.getHtml("TATLI ÇEŞİTLERİ", "İÇECEKLER");
-            icecekData.getHtml("İÇECEKLER", "[23]");
-            basicData.getHtml("ÇORBA", "[23]");
+
+            corbaData.getHtml(corbaStart, anaStart);
+            anaData.getHtml(anaStart, yardimciStart);
+            yardimciData.getHtml(yardimciStart, tatliStart);
+            tatliData.getHtml(tatliStart, icecekStart);
+            icecekData.getHtml(icecekStart, end);
+            basicData.getHtml(corbaStart, end);
 
 
         } catch (IOException e) {
